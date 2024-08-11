@@ -14,8 +14,8 @@ root.render(
     <KindeProvider
       clientId="488a53fb1a8e498c8e118f463049a69c"
       domain="https://dannysoftwares.kinde.com"
-      redirectUri="http://localhost:3000"
-      logoutUri="http://localhost:3000"
+      redirectUri={process.env.NODE_ENV === "production" ? "https://todo-app-software.vercel.app" :"http://localhost:3000" }
+      logoutUri={process.env.NODE_ENV === "production" ? "https://todo-app-software.vercel.app" :"http://localhost:3000" }
     >
       <TodosContextProvider>
         <App />
