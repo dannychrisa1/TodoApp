@@ -3,13 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { TodosContextProvider } from './contexts/TodosContextProvider';
+import { KindeProvider } from '@kinde-oss/kinde-auth-react';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <KindeProvider
+      clientId="488a53fb1a8e498c8e118f463049a69c"
+      domain="https://dannysoftwares.kinde.com"
+      redirectUri="http://localhost:3000"
+      logoutUri="http://localhost:3000"
+    >
+      <TodosContextProvider>
+        <App />
+      </TodosContextProvider>
+    </KindeProvider>
+
   </React.StrictMode>
 );
 
